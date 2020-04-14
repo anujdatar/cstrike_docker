@@ -1,0 +1,5 @@
+# empty file to commit folder
+
+# using misc folder :
+    # folder mounted in container. place archives of addons you want to install and use install_addon <.tar/.zip> to install mod/map
+    # or copy custom scripts for whatever you want
