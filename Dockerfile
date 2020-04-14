@@ -7,8 +7,8 @@ ENV PORT 27015
 ENV DEBIAN_FRONTEND noninteractive
 
 # install basic dependencies
-RUN dpkg --add-architecture i386
-RUN apt -qq update \
+# RUN dpkg --add-architecture i386
+RUN apt -qq update && apt -qqy upgrade \
     && apt -qqy install curl lib32gcc1 \
     unzip unrar p7zip-full
 
