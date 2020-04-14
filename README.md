@@ -1,4 +1,4 @@
-# CS_16_docker
+# cstrike_docker
 
 Counter Strike 1.6 server using docker
 
