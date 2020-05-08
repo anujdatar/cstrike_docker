@@ -6,17 +6,6 @@ ENV HLDS_DIR "/home/steam/hlds"
 ENV PORT 27015
 ENV DEBIAN_FRONTEND noninteractive
 
-# install basic dependencies
-# RUN dpkg --add-architecture i386
-RUN apt -qq update && apt -qqy upgrade \
-    && apt -qqy install curl lib32gcc1 \
-    unzip unrar p7zip-full
-
-# user setup
-RUN useradd -m steam
-WORKDIR /home/steam
-USER steam
-
 # default server constants
 ENV SV_LAN 0
 ENV MAP "de_minidust2"
@@ -24,6 +13,19 @@ ENV MAXPLAYERS 16
 ENV CS_HOSTNAME "cs_server_name"
 ENV CS_PASSWORD "server_password"
 ENV RCON_PASSWORD "rcon_password"
+
+# install basic dependencies
+RUN apt update && apt install -y \
+    curl \
+    lib32gcc1 \
+    p7zip-full\
+    unzip \
+    unrar
+
+# user setup
+RUN useradd -m steam
+# WORKDIR /home/steam
+USER steam
 
 # Install steamcmd manually : multiverse needs EULA acceptance, won't work in docker
 RUN mkdir -p $STEAMCMD_DIR
